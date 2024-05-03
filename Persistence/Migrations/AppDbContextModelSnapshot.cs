@@ -7,7 +7,7 @@ using Persistence.Database;
 
 #nullable disable
 
-namespace Job.Persistence.Migrations
+namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot

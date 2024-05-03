@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Persistence.QueryHandlers.Jobs
 {
+    /// <summary>
+    /// A MediatR Handler to Handle GetJobById requests
+    /// </summary>
     public class GetJobByIdQueryHandler : IRequestHandler<GetJobByIdQuery, JobQueryModel>
     {
         private readonly AppDbContext _dbContext;
@@ -21,7 +24,7 @@ namespace Persistence.QueryHandlers.Jobs
 
         public async Task<JobQueryModel> Handle(GetJobByIdQuery request, CancellationToken cancellationToken)
         {
-            var job = await _dbContext.Set<Domain.Entities.Jobs.Job>().Where(j => j.Id == request.JobId).Select(j => new JobQueryModel
+            var job = await _dbContext.Set<Job>().Where(j => j.Id == request.JobId).Select(j => new JobQueryModel
             {
                 Name = j.Name
             }).FirstOrDefaultAsync(cancellationToken);

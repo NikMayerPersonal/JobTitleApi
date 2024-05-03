@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobs.Application", "Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobs.Domain", "Domain\Jobs.Domain.csproj", "{8E171056-1D4B-4AF1-ABCB-13E9F9106BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobs.Persistence", "Persistence\Jobs.Persistence.csproj", "{C040B1CE-6139-46CD-A9BD-49CC86153EE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobs.PersistenceLayer", "Persistence\Jobs.PersistenceLayer.csproj", "{C040B1CE-6139-46CD-A9BD-49CC86153EE6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobs.Common", "Common\Jobs.Common.csproj", "{4E72B100-AE98-40C9-BA8D-3045E19B53AE}"
 EndProject

@@ -8,7 +8,7 @@ using Persistence.Database;
 
 #nullable disable
 
-namespace Job.Persistence.Migrations
+namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20240502170245_InitialMigration")]

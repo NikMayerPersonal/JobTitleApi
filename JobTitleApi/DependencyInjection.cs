@@ -1,10 +1,8 @@
-﻿using Common.General;
+﻿using Application.Jobs.Query.GetJobById;
+using Common.General;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Jobs.Api.Controllers.v1.Jobs.Requests;
 using Jobs.Api.Controllers.v1.Jobs.Validation;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -42,7 +40,7 @@ namespace Jobs.Api
             services.AddHttpContextAccessor();
             services.AddCors();
             services.AddFluentValidationAutoValidation();
-            services.AddTransient<IValidator<GetJobByIdRequest>, GetJobByIdRequestValidator>();
+            services.AddTransient<IValidator<GetJobByIdQuery>, GetJobByIdRequestValidator>();
             return services;
         }
 

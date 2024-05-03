@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Job.Persistence.Migrations
+namespace Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigrationv2 : Migration

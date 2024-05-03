@@ -1,14 +1,17 @@
-﻿using FluentValidation;
-using Jobs.Api.Controllers.v1.Jobs.Requests;
+﻿using Application.Jobs.Query.GetJobById;
+using FluentValidation;
 
 namespace Jobs.Api.Controllers.v1.Jobs.Validation
 {
-    public class GetJobByIdRequestValidator : AbstractValidator<GetJobByIdRequest>
+    /// <summary>
+    /// A validator for GetJobById requests
+    /// </summary>
+    public class GetJobByIdRequestValidator : AbstractValidator<GetJobByIdQuery>
     {
         public GetJobByIdRequestValidator()
         {
             RuleFor(x => x.JobId)
-                .NotNull().NotEmpty().GreaterThan(0).WithMessage("{PropertyName} is not valid");
+                .NotNull().NotEmpty().GreaterThanOrEqualTo(0).WithMessage("JobId is not valid");
         }
     }
 }

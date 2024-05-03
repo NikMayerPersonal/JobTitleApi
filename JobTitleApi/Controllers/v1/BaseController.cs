@@ -14,7 +14,5 @@ namespace Jobs.Api.Controllers.v1
         }
 
         protected IMediator Mediator => GetService<IMediator>();
-
-        protected ILogger Logger => GetService<ILogger>();
     }
 }

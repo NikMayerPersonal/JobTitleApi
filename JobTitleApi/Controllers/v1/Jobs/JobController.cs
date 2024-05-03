@@ -1,22 +1,29 @@
 ﻿using Application.Jobs.Query.GetJobById;
 using FluentValidation;
-using Jobs.Api.Controllers.v1.Jobs.Requests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jobs.Api.Controllers.v1.Jobs
 {
+    /// <summary>
+    /// Controller for Job entity
+    /// </summary>
     [ApiVersion("1")]
     public class JobController : BaseController
     {
-        private readonly IValidator<GetJobByIdRequest> _getJobByIdRequestValidator;
+        private readonly IValidator<GetJobByIdQuery> _getJobByIdRequestValidator;
 
-        public JobController(IValidator<GetJobByIdRequest> getJobByIdRequestValidator)
+        public JobController(IValidator<GetJobByIdQuery> getJobByIdRequestValidator)
         {
             _getJobByIdRequestValidator = getJobByIdRequestValidator;
         }
 
+        /// <summary>
+        /// Gets a job by id
+        /// </summary>
+        /// <param name="request">A request of type GetJobByIdRequest</param>
+        /// <returns>Returns an object of type JobQueryModel</returns>
         [HttpGet]
-        public async Task<IActionResult> GetByIdAsync([FromQuery] GetJobByIdRequest request)
+        public async Task<IActionResult> GetByIdAsync([FromQuery] GetJobByIdQuery request)
         {
             
             var validationResult = _getJobByIdRequestValidator.Validate(request);
@@ -24,12 +31,13 @@ namespace Jobs.Api.Controllers.v1.Jobs
             {
                 return BadRequest(validationResult.Errors.First().ErrorMessage);
             }
-            var result = await Mediator.Send(new GetJobByIdQuery { JobId = request.JobId });
+            var result = await Mediator.Send(request);
 
             if(result == null)
             {
                 return NotFound($"Job with Id: {request.JobId} doesn't exist");
             }
+
             return Ok(result);
         }
     }
